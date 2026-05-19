@@ -9,11 +9,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     
     <style>
-        /* ================= CSS PREMIUM ADMIN DASHBOARD ================= */
         body { background: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #000 70%); }
         
-        /* Chuyển từ Flex center sang Grid 2 cột để tận dụng không gian */
-        .profile-wrapper { 
+    /*Sử dụng lệnh này để chia không gian sang 2 bên*/
+        .profile-wrapper {  
             display: flex; justify-content: center; align-items: flex-start; 
             min-height: calc(100vh - 150px); padding: 20px 40px; 
         }
@@ -25,14 +24,14 @@
 
         @keyframes formFadeIn { 0% { opacity: 0; transform: translateY(30px) scale(0.98); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
 
-        /* --- 1. CỘT TRÁI: THẺ PROFILE --- */
+        /* cột trái trang admin */
         .profile-card {
             background: rgba(15, 15, 15, 0.6); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 20px; overflow: hidden;
             box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.05); position: relative;
         }
         
-        /* 💡 ĐÃ SỬA ẢNH BÌA: Thay link ảnh của bạn vào url() bên dưới */
+        /* Thêm ảnh vào profile */
         .profile-cover {
             height: 140px; position: relative; overflow: hidden;
             background-image: url('https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/5/15/truong-dau-tien-danh-gia-tri-tue-cam-xuc-eq-de-tuyen-sinh-dai-hoc-83864.jpg?width=1200&s=ZLJRQ8vQlpOD1nTCMSSX4w'); /* Ảnh bìa Demo (Carbon Fiber) */
@@ -52,7 +51,7 @@
         }
         .profile-card:hover .profile-avatar { box-shadow: 0 0 30px rgba(250, 204, 21, 0.4); border-color: #facc15; }
         
-        /* 💡 ĐÃ SỬA ẢNH ĐẠI DIỆN: Class ép ảnh tròn xoe */
+        /* Làm khung ảnh tròn xoe */
         .avatar-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 
         .profile-info { text-align: center; padding: 60px 25px 30px; }
@@ -74,7 +73,7 @@
         .btn-action-danger { background: rgba(231, 76, 60, 0.05); border: 1px solid rgba(231, 76, 60, 0.3); color: #e74c3c; }
         .btn-action-danger:hover { background: #e74c3c; color: #fff; border-color: #e74c3c; }
 
-        /* --- 2. CỘT PHẢI: SYSTEM CONTROL CENTER (LẤP ĐẦY KHOẢNG TRỐNG) --- */
+        /* --- 2.  quản lý số liệu bên cột phải --- */
         .system-panel {
             background: rgba(15, 15, 15, 0.4); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 20px; padding: 30px;
@@ -102,7 +101,7 @@
         .log-content p { margin: 0; color: #888; font-size: 12px; }
         .log-time { margin-left: auto; color: #666; font-size: 11px; font-family: 'Roboto Mono', monospace; }
 
-        /* ================= MODAL ĐỔI MẬT KHẨU ================= */
+        /* modal đổi mật khẩu */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); display: none; justify-content: center; align-items: center; z-index: 999; opacity: 0; transition: 0.3s; }
         .modal-overlay.active { display: flex; opacity: 1; }
         .modal-box { background: #111; border: 1px solid #333; border-radius: 16px; padding: 30px; width: 90%; max-width: 400px; transform: translateY(20px); transition: 0.3s; }
@@ -134,7 +133,7 @@
         <div class="profile-wrapper">
             <div class="admin-dashboard">
                 
-                <!-- CỘT 1: PROFILE CỦA QUANG HUNG -->
+                <!-- profile của tôi -->
                 <div class="profile-card">
                     <div class="profile-cover">
                         <div class="profile-avatar-wrapper">
@@ -160,7 +159,7 @@
                     </div>
                 </div>
 
-                <!-- CỘT 2: DASHBOARD TRẠNG THÁI HỆ THỐNG -->
+                <!-- Dashboard hệ thống -->
                 <div class="system-panel">
                     
                     <div>
@@ -220,7 +219,7 @@
         </div>
     </div>
 
-    <!-- CÁC MODAL VÀ SCRIPT GIỮ NGUYÊN -->
+    <!-- Các modal và script -->
     <div class="modal-overlay" id="pwdModal">
         <div class="modal-box">
             <h3><i class="fas fa-lock" style="color: #facc15; margin-right: 8px;"></i> Đổi mật khẩu</h3>
