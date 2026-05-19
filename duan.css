@@ -1,9 +1,6 @@
-/* ==========================================================================
-   CARBON ATS - ULTRA LUXURY ENTERPRISE EDITION 2026
-   Author: Kỹ sư giao diện Tùng & AI
-   ========================================================================== */
 
-/* --- 1. HỆ THỐNG BIẾN (CSS VARIABLES) ĐẲNG CẤP --- */
+
+/chỉnh giao diện cho hệ thống/
 :root {
     --bg-deep: #030305;
     --glass-bg: rgba(15, 15, 20, 0.4);
@@ -15,7 +12,7 @@
     --blur-strong: blur(20px);
 }
 
-/* --- 2. GLOBAL & ANIMATED AURORA BACKGROUND (HIỆU ỨNG ĐIÊN RỒ NHẤT) --- */
+
 * { box-sizing: border-box; font-family: 'SF Pro Display', 'Inter', -apple-system, sans-serif; }
 
 body { 
@@ -28,7 +25,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Tạo 2 luồng sáng Cực quang (Aurora) di chuyển chậm dưới nền */
+/* Tạo 2 luồng sáng Cực quang di chuyển chậm dưới nền */
 body::before, body::after {
     content: ''; position: fixed; top: 50%; left: 50%;
     width: 60vw; height: 60vw; border-radius: 50%;
@@ -52,7 +49,7 @@ body::after {
 ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
 
-/* --- 3. THANH MENU (NAVBAR) KÍNH MỜ SIÊU CẤP --- */
+/* --- 3. Thanh menu --- */
 .navbar { 
     background: rgba(5, 5, 8, 0.6); 
     backdrop-filter: var(--blur-strong); -webkit-backdrop-filter: var(--blur-strong);
@@ -88,7 +85,7 @@ body::after {
 .avatar { background: var(--gold-gradient); color: #000; width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 13px; font-weight: 900; box-shadow: var(--gold-glow);}
 .username { font-size: 13px; color: #fff; font-weight: 600; }
 
-/* --- 4. KHUNG CHỨA VÀ CONTROL PANEL --- */
+/* --- Khung chứa và hover panel --- */
 .main-container { padding: 40px; max-width: 1500px; margin: 80px auto 0 auto; animation: fadeUp 0.8s ease-out; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -114,7 +111,7 @@ button, .btn-primary {
 .btn-primary:hover, .add-candidate-form button:hover {
     transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 30px rgba(212,175,55,0.4);
 }
-/* Hiệu ứng tia sáng quét ngang nút khi hover (Cực kỳ cao cấp) */
+/* Hiệu ứng tia sáng quét ngang nút khi hover */
 .btn-primary::before, .add-candidate-form button::before {
     content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
@@ -132,7 +129,7 @@ button, .btn-primary {
     border-color: #D4AF37; box-shadow: 0 0 0 2px rgba(212,175,55,0.2); background: rgba(0,0,0,0.8);
 }
 
-/* --- 6. BẢNG KANBAN ĐA SẮC ĐẲNG CẤP (GLASSMORPHISM CARDS) --- */
+/* --- BẢNG KANBAN ĐA SẮC  --- */
 .kanban-board { display: flex; gap: 25px; align-items: flex-start; }
 .kanban-column { 
     flex: 1; border-radius: 16px; display: flex; flex-direction: column; 
@@ -143,7 +140,7 @@ button, .btn-primary {
 .count { background: rgba(0,0,0,0.6); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; color: #fff; border: 1px solid #333; }
 .column-body { padding: 15px; min-height: 500px; display: flex; flex-direction: column; gap: 15px; }
 
-/* Thẻ Ứng viên (Cực xịn, đổ bóng đa tầng) */
+/* Thẻ Ứng viên */
 .candidate-card { 
     background: linear-gradient(145deg, #16161a 0%, #0d0d12 100%); 
     padding: 20px; border-radius: 12px; cursor: grab; 
@@ -176,7 +173,7 @@ button, .btn-primary {
 #col-hired .candidate-card { border-left-color: #10b981; }
 #col-hired .candidate-card:hover { border-color: rgba(16, 185, 129, 0.5); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.15); }
 
-/* --- 7. BẢNG DỮ LIỆU (DATA TABLES) SANG TRỌNG --- */
+/* ---BẢNG DỮ LIỆU   --- */
 .data-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; margin-top: 10px; }
 .data-table th { padding: 0 20px 10px 20px; color: #6B7280; text-transform: uppercase; font-weight: 700; letter-spacing: 1px; font-size: 11px; text-align: left;}
 .data-table td { padding: 20px; background: rgba(20, 20, 25, 0.6); font-size: 14px; color: #E5E7EB; border-top: 1px solid #222; border-bottom: 1px solid #222; transition: 0.3s;}
@@ -188,7 +185,7 @@ button, .btn-primary {
 .st-open { background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.3); }
 .st-closed { background: rgba(231, 76, 60, 0.1); color: #e74c3c; border-color: rgba(231, 76, 60, 0.3); }
 
-/* --- 8. LOGIN SCREEN (NEO-BRUTALISM X GLASS) --- */
+/* --- LOGIN SCREEN  --- */
 .login-overlay { 
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh; 
     background: radial-gradient(circle at center, #1a1a24 0%, #000 100%);
@@ -202,9 +199,6 @@ button, .btn-primary {
 }
 .login-logo { font-size: 38px; font-weight: 900; letter-spacing: 3px; margin: 0 0 10px 0; color: #fff;}
 .login-logo span { background: var(--gold-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;}
-/* ==========================================================================
-   CARBON ATS - PREMIUM UI UPGRADE (THÊM CHIỀU SÂU & NEON GLOW)
-   ========================================================================== */
 
 /* 1. Đánh sáng phông nền (Tạo hiệu ứng đèn hắt 2 bên) */
 body { 
@@ -215,7 +209,7 @@ body {
     background-attachment: fixed;
 }
 
-/* 2. Cột Kanban: Kính mờ sâu hơn, có viền sáng phản quang trên cùng */
+/* Cột Kanban: Kính mờ sâu hơn, có viền sáng phản quang trên cùng */
 .kanban-column {
     background: linear-gradient(180deg, rgba(20, 20, 28, 0.7) 0%, rgba(10, 10, 15, 0.4) 100%);
     backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
@@ -224,7 +218,7 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-/* 3. Thẻ Ứng Viên: Hiệu ứng nổi khối 3D */
+/* Thẻ Ứng Viên: Hiệu ứng nổi khối 3D */
 .candidate-card {
     background: rgba(30, 30, 40, 0.5);
     backdrop-filter: blur(10px);
@@ -241,7 +235,7 @@ body {
     z-index: 10;
 }
 
-/* 4. Cá nhân hóa ánh sáng Neon cho từng cột */
+/*Cá nhân hóa ánh sáng Neon cho từng cột */
 /* Cột New Applied (Xanh dương) */
 #col-new .candidate-card { box-shadow: inset 4px 0 0 #3b82f6; }
 #col-new .candidate-card:hover { 
