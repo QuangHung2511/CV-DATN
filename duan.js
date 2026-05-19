@@ -1,7 +1,4 @@
-/* ==========================================================================
-   CARBON ATS - CORE LOGIC V3.0 (TÍCH HỢP NODE.JS & MODAL QUICK VIEW)
-   Author: Kỹ sư giao diện Tùng & AI
-   ========================================================================== */
+
 
    let candidates = [];
    let savedStatuses = JSON.parse(localStorage.getItem('carbonColumnState')) || {};
@@ -19,7 +16,7 @@
        return cleanName.substring(0, 2).toUpperCase();
    }
    
-   // 1. TẢI DỮ LIỆU TỪ NODE.JS
+   // tải dữ liệu từ node
    async function fetchCandidatesFromBackend() {
        try {
            const API_BASE = window.API_BASE_URL || 'http://localhost:3000';
@@ -41,9 +38,7 @@
                // Lấy trạng thái kéo thả cũ (nếu có)
                let currentStatus = savedStatuses[uid];
 
-               // ========================================================
-               // THUẬT TOÁN AUTO-REJECT (TỰ ĐỘNG LOẠI CV < 50%)
-               // ========================================================
+               // tự động lọc cv
                if (!currentStatus) {
                    if (score < 50) {
                        currentStatus = 'col-rejected'; // Đuổi thẳng ra đảo!
@@ -51,7 +46,6 @@
                        currentStatus = 'col-new'; // Đủ điểm thì cho vào cột Chờ xử lý
                    }
                }
-               // ========================================================
 
                return {
                    id: uid,
@@ -76,7 +70,7 @@
        }
    }
    
-   // 2. KHỞI TẠO BẢNG 
+   // khởi tạo bảng 
    function renderBoard() {
        const kanbanBoard = document.querySelector('.kanban-board');
        if (!kanbanBoard) return; 
@@ -89,7 +83,7 @@
        setupDragAndDrop(); 
    }
    
-   // 3. TẠO NODE DOM TRỰC TIẾP
+   // 3. tạo node dom trực tiếp
    function createCardElement(candidate) {
        let initials = getInitials(candidate.name);
        
@@ -138,9 +132,8 @@
        if(columnBody) columnBody.appendChild(card);
    }
    
-   // 4. ĐẾM SỐ LƯỢNG KÈM HIỆU ỨNG POP ANIMATION
+   // đêm số lượng kèm hiểu ứng pop animation
    function updateCounts() {
-       // ĐÃ BỔ SUNG COL-REJECTED VÀO ĐÂY ĐỂ HỆ THỐNG ĐẾM
        ['col-new', 'col-screening', 'col-interview', 'col-hired', 'col-rejected'].forEach(colId => {
            const count = candidates.filter(c => c.status === colId).length;
            const countEl = document.getElementById(`count-${colId.split('-')[1]}`);
@@ -162,7 +155,7 @@
    style.innerHTML = `@keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.4); } 100% { transform: scale(1); } }`;
    document.head.appendChild(style);
    
-   // 5. LOGIC KÉO THẢ TỐI ƯU DOM
+   // Logic kéo thả tối ưu
    function setupDragAndDrop() {
        document.querySelectorAll('.kanban-column').forEach(col => {
            col.addEventListener('dragover', e => { e.preventDefault(); col.classList.add('drag-over'); });
@@ -194,7 +187,7 @@
        });
    }
    
-   // 6. TÌM KIẾM THÔNG MINH
+   // tim kiếm thông minh
    function filterCandidates() {
        const searchInput = document.getElementById('search-cand');
        if(!searchInput) return;
@@ -207,7 +200,7 @@
        });
    }
    
-   // 7. HIỆU ỨNG PHÁO HOA TUNG TÓE
+   // hiệu ứng pháo hoa
    function triggerConfetti() {
        if (typeof confetti !== 'undefined') {
            const duration = 2500; const end = Date.now() + duration;
@@ -223,9 +216,8 @@
        if(document.querySelector('.kanban-board')) fetchCandidatesFromBackend();
    });
    
-   // ========================================================
-   // 8. TÍNH NĂNG XEM CHI TIẾT CV (MODAL VIEW)
-   // ========================================================
+
+   // tính năng xem chi tiết cv
    function openCvModal(candidateId) {
        const cand = candidates.find(c => c.id === candidateId);
        if (!cand) return;
